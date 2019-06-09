@@ -1,0 +1,32 @@
+<%- include('header')%>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Area administrativa - Editar Contato</h2>
+        </div>
+    </div>
+</div>
+
+
+<% contato.forEach(contato => { %>
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col mt-3 text-left">
+
+                <h2><a href="#">Editar Contato</a></h2>
+                 
+    
+                <%- contato.telefone %><br />
+                <%- contato.email %><br />
+                <%- contato.site %><br />
+                <%- contato.linkedin %><br />
+                <%- contato.skype %><br />
+    
+    
+            </div>
+        </div>
+    </div>
+    <% }) %>
+
+<%- include('footer')%>

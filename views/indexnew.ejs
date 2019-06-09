@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+            integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <title>Jeferson Rocha</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row d-flex">
+                <div class="col-4 text-center">
+                    <div class="lateral">
+                        <img src="/images/profile2.jpg" class="rounded-circle mt-4" width="120px">
+                        <div class="col text-center mt-4">
+                            <h5>JEFERSON ROCHA</h5>
+                            <hr class="border-white">
+                            <h5>FullStack Developer</h5>
+                        </div>
+
+                        <div class="col text-left mt-5">
+                            <% contato.forEach(contato => { %>
+
+                            <h5>contato</h5>
+                            <i class="fas fa-mobile-alt"></i> <%- contato.telefone %><br />
+                            <i class="fas fa-envelope-open-text"></i> <%- contato.email %><br />
+                            <i class="fas fa-user-circle"></i> <a
+                                href="http://<%- contato.site %>"><%- contato.site %><br /></a>
+                            <i class="fab fa-linkedin"></i> <a
+                                href="http://<%- contato.linkedin %>"><%- contato.linkedin %></a><br />
+                            <i class="fab fa-skype"></i> <%- contato.skype %><br />
+                            <% }) %>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-8 text-center mt-5">
+                    <h5 class="">
+                        Prover soluções para garantir que as ferramentas adequadas estejam funcionando da forma
+                        correta,
+                        ajudando a melhorar suas habilidades e desempenho, isso é o que sei fazer de melhor.
+                    </h5>
+
+                    <h1 class="mt-5">Experiencia</h1>
+                    <div class="sec">
+                        <% experiencia.forEach(experiencia => { %>
+                        <br /><br />
+                        <h5><%- experiencia.cargo %><br /></h5>
+                        <em><%- experiencia.empresa %></em><br />
+                        <%- experiencia.startDate %> | <%- experiencia.endDate %>
+                        <br /><br />
+                        <%- experiencia.descricao %>
+                        <% }) %>
+
+
+                    </div>
+                    <h1>Idiomas</h1>
+                    <div class="sec">
+
+                        <% idiomas.forEach(idiomas => { %>
+                        <p><%- idiomas.idioma %>:<%- idiomas.level %></p>
+                        <% }) %>
+
+
+                    </div>
+
+                    <h1>Formação</h1>
+                    <div class="sec">
+
+                        <% formacao.forEach(formacao => { %>
+                        <p><%- formacao.instituicao %></p>
+                        <p><%- formacao.curso %></p>
+                        <p>Inicio: <%- formacao.inicio %></p>
+                        <p>Conclusão: <%- formacao.fim %></p>
+                        <% }) %>
+
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <script src="/js/jquery-3.3.1.slim.min.js">
+        </script>
+        <script src="/js/popper.min.js">
+        </script>
+        <script src="/js/bootstrap.min.js">
+        </script>
+
+    </body>
+
+</html>

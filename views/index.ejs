@@ -1,0 +1,98 @@
+<%- include('header')%>
+<div class="container">
+
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-6 text-center">
+            <p>
+                Prover soluções para garantir que as ferramentas adequadas estejam funcionando da forma correta,
+                ajudando a melhorar suas habilidades e desempenho, isso é o que sei fazer de melhor.
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<% contato.forEach(contato => { %>
+<div class="container mb-5">
+    <div class="row">
+        <div class="col mt-3 text-center">
+            <h3>contato</h3>
+
+
+            <%- contato.telefone %><br />
+            <%- contato.email %><br />
+            <%- contato.site %><br />
+            <%- contato.linkedin %><br />
+            <%- contato.skype %><br />
+
+
+        </div>
+    </div>
+</div>
+<% }) %>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <h3>Experiencia</h3>
+            <a href="/admin">Editar</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <% experiencia.forEach(experiencia => { %>
+            <br /><br />
+            <h5><%- experiencia.cargo %><br /></h5>
+            <em><%- experiencia.empresa %></em><br />
+            <%- experiencia.startDate %> | <%- experiencia.endDate %>
+            <br /><br />
+            <%- experiencia.descricao %>
+            <% }) %>
+
+            <br />
+        </div>
+
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col text-center mt-5">
+            <h3>Idiomas</h3>
+            <% idiomas.forEach(idiomas => { %>
+            <p><%- idiomas.idioma %>:<%- idiomas.level %></p>
+            <% }) %>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col text-center mt-5">
+            <h3>Formação</h3>
+            <% formacao.forEach(formacao => { %>
+            <p><%- formacao.instituicao %></p>
+            <p><%- formacao.curso %></p>
+            <p>Inicio: <%- formacao.inicio %></p>
+            <p>Conclusão: <%- formacao.fim %></p>
+            <% }) %>
+        </div>
+    </div>
+</div>
+
+
+
+<br /><br />
+
+
+<%- include('footer')%>

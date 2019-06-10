@@ -1,19 +1,34 @@
 const express = require('express')
-const bodyParse = require('body-parser')
-const app = express()
-
-//variable for sqlite and a connection to a data base
 const sqlite = require('sqlite')
-const dbConnection = sqlite.open('banco.sqlite', {
+const app = express()
+const bodyParser = require('body-parser')
+const path = require('path')
+
+const dbConnection = sqlite.open(path.resolve(__dirname, 'banco.sqlite'), {
     Promise
 })
 
-app.use(bodyParse.urlencoded({
-    extended: true
-}))
+//redirect to a local por 3000 or external 80
+const port = process.env.PORT || 3000
+
+//Se estiver local== acesso a area admin, seNão == sem acesso
+app.use('/admin', (req, res, next) => {
+    if (req.hostname === 'localhost') {
+        next()
+    } else {
+        res.send('Not allowed')
+    }
+})
+
+
+app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 // If cannot find some file on /, tries by Public folder
-app.use(express.static('public'))
+app.use(express.static(path.join(__dirname, 'public')))
+app.use(bodyParser.urlencoded({
+    extended: true
+}))
+
 
 
 //Render  the index "home.ejs" on Browser
@@ -43,6 +58,13 @@ app.get('/new', async (request, response) => {
         formacao
     })
 })
+
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'ejs')
+app.use(express.static(path.join(__dirname, 'public')))
+app.use(bodyParser.urlencoded({
+    extended: true
+}))
 //It creates a render for a new page /admin
 app.get('/admin', async (req, res) => {
     res.render('admin/home')
@@ -96,7 +118,7 @@ const init = async () => {
 init()
 
 //Using express to run on Port 3000
-app.listen(3000, (err) => {
+app.listen(port, (err) => {
     if (err) {
         console.log('Não foi possivel iniciar o servidor')
 

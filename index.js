@@ -45,19 +45,7 @@ app.get('/', async (request, response) => {
         formacao
     })
 })
-app.get('/new', async (request, response) => {
-    const db = await dbConnection
-    const contato = await db.all('select * from contato;')
-    const experiencia = await db.all('select * from experiencia')
-    const idiomas = await db.all('select * from idiomas')
-    const formacao = await db.all('select * from formacao')
-    response.render('indexnew', {
-        contato,
-        experiencia,
-        idiomas,
-        formacao
-    })
-})
+
 
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')

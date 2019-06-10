@@ -1,98 +1,71 @@
 <%- include('header')%>
-<div class="container">
 
-</div>
+<body>
+    <div class="container">
+        <div class="row d-flex">
+            <div class="col-xl-4 col-md-5 col-sm-12 text-center">
+                <div class="lateral">
+                    <img src="/images/profile3.jpg" class="rounded-circle mt-4" width="120px">
+                    <div class="col text-center mt-4">
+                        <h5>JEFERSON ROCHA</h5>
+                        <hr class="border-white">
+                        <h5>FullStack Developer</h5>
+                    </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col">
+                    <div class="col text-left mt-5">
+                        <h5>contato</h5>
+                        <% contato.forEach(contato => { %>
+                        <i class="fas fa-mobile-alt"></i> <%- contato.telefone %><br />
+                        <i class="fas fa-envelope-open-text"></i> <%- contato.email %><br />
+                        <i class="fas fa-user-circle"></i> <a
+                            href="http://<%- contato.site %>"><%- contato.site %><br /></a>
+                        <i class="fab fa-linkedin"></i> <a
+                            href="http://<%- contato.linkedin %>"><%- contato.linkedin %></a><br />
+                        <i class="fab fa-skype"></i> <%- contato.skype %><br />
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
 
+            <div class="col-xl-8 col-md-7 col-sm-12 text-center mt-5">
+                <h5 class="">
+                    Prover soluções para garantir que as ferramentas adequadas estejam funcionando da forma
+                    correta,
+                    ajudando a melhorar suas habilidades e desempenho, isso é o que sei fazer de melhor.
+                </h5>
+
+                <h1 class="mt-5">Experiencia</h1>
+                <div class="sec">
+                    <% experiencia.forEach(experiencia => { %>
+                    <br /><br />
+                    <h5><%- experiencia.cargo %><br /></h5>
+                    <em><%- experiencia.empresa %></em><br />
+                    <%- experiencia.startDate %> | <%- experiencia.endDate %>
+                    <br /><br />
+                    <%- experiencia.descricao %>
+                    <% }) %>
+
+                </div>
+                <h1>Idiomas</h1>
+                <div class="sec">
+                    <% idiomas.forEach(idiomas => { %>
+                    <p><%- idiomas.idioma %>:<%- idiomas.level %></p>
+                    <% }) %>
+                </div>
+
+                <h1>Formação</h1>
+                <div class="sec">
+                    <% formacao.forEach(formacao => { %>
+                    <p><%- formacao.instituicao %></p>
+                    <p><%- formacao.curso %></p>
+                    <p>Inicio: <%- formacao.inicio %></p>
+                    <p>Conclusão: <%- formacao.fim %></p>
+                    <% }) %>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row justify-content-center">
-        <div class="col-6 text-center">
-            <p>
-                Prover soluções para garantir que as ferramentas adequadas estejam funcionando da forma correta,
-                ajudando a melhorar suas habilidades e desempenho, isso é o que sei fazer de melhor.
-            </p>
-        </div>
-    </div>
-
-</div>
-
-<% contato.forEach(contato => { %>
-<div class="container mb-5">
-    <div class="row">
-        <div class="col mt-3 text-center">
-            <h3>contato</h3>
-
-
-            <%- contato.telefone %><br />
-            <%- contato.email %><br />
-            <%- contato.site %><br />
-            <%- contato.linkedin %><br />
-            <%- contato.skype %><br />
-
-
-        </div>
-    </div>
-</div>
-<% }) %>
-
-
-<div class="container">
-    <div class="row">
-        <div class="col text-center">
-            <h3>Experiencia</h3>
-            <a href="/admin">Editar</a>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col text-center">
-            <% experiencia.forEach(experiencia => { %>
-            <br /><br />
-            <h5><%- experiencia.cargo %><br /></h5>
-            <em><%- experiencia.empresa %></em><br />
-            <%- experiencia.startDate %> | <%- experiencia.endDate %>
-            <br /><br />
-            <%- experiencia.descricao %>
-            <% }) %>
-
-            <br />
-        </div>
-
-    </div>
-</div>
-
-
-<div class="container">
-    <div class="row">
-        <div class="col text-center mt-5">
-            <h3>Idiomas</h3>
-            <% idiomas.forEach(idiomas => { %>
-            <p><%- idiomas.idioma %>:<%- idiomas.level %></p>
-            <% }) %>
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col text-center mt-5">
-            <h3>Formação</h3>
-            <% formacao.forEach(formacao => { %>
-            <p><%- formacao.instituicao %></p>
-            <p><%- formacao.curso %></p>
-            <p>Inicio: <%- formacao.inicio %></p>
-            <p>Conclusão: <%- formacao.fim %></p>
-            <% }) %>
-        </div>
-    </div>
-</div>
 
 
 
-<br /><br />
-
-
-<%- include('footer')%>
+    <%- include('footer')%>
